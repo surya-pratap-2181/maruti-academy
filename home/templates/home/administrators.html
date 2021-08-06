@@ -1,0 +1,21 @@
+{% extends 'home/base.html' %}
+{% block title %}
+{{data.title}}
+{% endblock title %}
+{% block body %}
+<div class="row p-md-5 rounded">
+    <div class="col-md-7 px-3">
+        <div class="container mb-5 ">
+<h1 class="shadow p-2 my-4 text-center f-color mytext py-3 " >{{data.title}}</h1>
+<hr>
+</div>
+        <p class="my-4  text-justify">{{data.description}}</p>
+        <p class="mb-0 mt-3 font-weight-bolder text-right text-muted">{{data.name}}</p>
+        <p class="mb-0 font-weight-bolder d-block text-right text-muted">{{data.position}}</p>
+    </div>
+
+    <div class="col-md-5 px-5">
+        <img src="{{data.photo.url}}" alt="Principal's Image" class="rounded" style="width: 500px; height: 550px;" srcset="">
+    </div>
+</div>
+{% endblock body %}

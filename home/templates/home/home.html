@@ -1,0 +1,108 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block body %}
+<div class="container-fluid px-0 ">
+    <section class="jumbotron jumbotron-fluid text-center shadow jnav">
+        <div class="container">
+            <p class="text-info">Welcome to</p>
+            <h1 style="font-size: 6rem; font-family: ui-monospace;" class="font-weight-bolder ">Maruti Academy</h1>
+            <p class=" lead text-muted font-italic">CBSE Affilation No. 1030340</p>
+            <p class="font-weight-bold ">Admission Open 2021-22 </p>
+            <p class="font-weight-bold"> Please Contact us at School Campus or call on
+            </p>
+            <p> <a class="text-muted" href="tel:+917509249549"> +91-75092-49549 </a> | <a class="text-muted"
+                    href="tel:+917987179334">
+                    +91-79871-79334 </a>
+            </p>
+        </div>
+    </section>
+</div>
+<!-- Carousel Start here -->
+<div id="carouselExampleIndicators" class="carousel slide shadow" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        {% for image in images %}
+            <div {% if forloop.counter == 1 %}class="carousel-item active" {% else %} class="carousel-item" {% endif %}>
+            <img src="{{image.image.url}}" style="height: 600px;" class="d-block w-100" alt="...">
+            </div>
+            {% endfor %}
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<!-- carousel ends here -->
+
+<!-- Features starts here  -->
+<div class="container-fluid mt-2">
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette shadow p-3">
+        <div class="col-md-7 order-md-2">
+            <h2 class=" text-center my-2">{{home1.title}}</span>
+            </h2>
+            <p class="text-monospace mt-3 text-left">{{home1.description}}</p>
+        </div>
+        <div class="col-md-5 order-md-1 text-center my-3">
+            <img src="{{home1.photo.url}}" style="width: 500px; height: 350px;" alt="" srcset="">
+
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette shadow">
+        <div class="col-md-7 order-md-1 ">
+            <h2 class=" text-center my-2">{{home2.title}}</span>
+            </h2>
+
+            <p class="text-monospace mt-3">{{home2.description}}</p>
+        </div>
+        <div class="col-md-5 order-md-2 text-center my-3">
+            <img src="{{home2.photo.url}}" style="width: 500px; height: 350px;" alt="" srcset="">
+
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+</div>
+<!-- Features ends here  -->
+<!-- Cards starts Here  -->
+<div class="container-fluid p-3" style="background-color: #D3D3D3;">
+    <div class="text-center">
+        <h1 class="font-weight-bolder">Maruti Academy</h1>
+        <p>Maruti Academy, Ratlam is spread over 7 Acres of land in lush green, Serene atmosphere having spacious
+            building with all modern facilities for its students and now it is considered as one of the best CBSE
+            affiliated schools of Ratlam.</p>
+    </div>
+    <div class="container text-center">
+        <div class="row ">
+            {% for card in cards %}
+            <div class="card mx-4 my-3 shadow border" style="width: 18rem;">
+                <img src="{{card.photo.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title font-weight-bold">{{card.title}}</h5>
+                    <p class="card-text">{{card.description}}</p>
+                    <a href="{% url 'glimpses' %}" class="btn btn-success">Explore</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Cards ends Here  -->
+{% endblock body %}

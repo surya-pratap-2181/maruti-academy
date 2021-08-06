@@ -1,0 +1,70 @@
+{% extends 'home/base.html' %}
+{% block title %}
+About
+{% endblock title %}
+{% block body %}
+<div class="container mb-5 ">
+<h1 class="shadow p-2 my-4 text-center f-color mytext py-3 " >{{data.title}}</h1>
+<hr>
+</div>
+    {% comment %} <h1 class="display-4 text-center"></h1> {% endcomment %}
+
+<div class="container mt-3 ">
+    <img class="rounded mx-auto d-block" src="{{data.photo.url}}" alt="Principal's Image"  srcset="">
+    <p class="my-5 text-monospace text-justify">{{data.description}}</p> 
+</div>
+
+<!-- courousel start -->
+<h1 class="display-4 text-center st-font mb-5 headcolor">Aims and Objectives</h1>
+<div class="row">
+<div class="col-md-5 offset-1">
+        <div id="carouselExampleIndicators" class="carousel slide"data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner rounded">
+        {% for image in images %}
+            <div {% if forloop.counter == 1 %}class="carousel-item active" {% else %} class="carousel-item" {% endif %}>
+            <img src="{{image.image.url}}" style="height: 450px;" class="d-block w-100" alt="...">
+            </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        </div>
+    </div> 
+<div class="col-md-4 offset-1">
+<p class="small text-monospace text-justify"><i class="fas fa-check-circle kadd"></i>
+    To make the students in the awareness of god’s presence within themselves through spiritual guidance, meditation, reflection and prayer on various occasion and the daily morning assembly</p>
+    <p class="small text-monospace text-justify"><i class="fas fa-check-circle kadd"></i> To create and sustain a conducive teaching- learning atmosphere for the mastery of knowledge, through regular evaluation & supervision of classroom – Instruction, seminars, refresher courses and input session for teachers, introducing technology and new approaches needed for effective classroom – instruction
+    </p>
+    <p class="small text-monospace text-justify"><i class="fas fa-check-circle kadd"></i> To develop positive attitude and skills needed for school life through value education classes, Guidance and counseling, social service, Help the needy programme etc. with emphasis on respect for human life, dignity of labor, justice, love peace and concern for the poor.</p>
+    <p class="small text-monospace text-justify"><i class="fas fa-check-circle kadd"></i> To promote integration among students belonging to different, religions and social groups through value education classes, Celebration of feasts, the thereby promoting in the students acceptance of cultural difference</p>
+    <p class="small text-monospace text-justify"><i class="fas fa-check-circle kadd"></i> To provide wholesome activities that foster love for the country and appreciation and enrichment of the Indian culture and heritage through cultural and various house –wise competitions, celebration of national feasts, Morning assembly , craft exhibitions etc.</p>
+    <p class="small text-monospace text-justify"><i class="fas fa-check-circle kadd"></i> To prepare students for responsible leadership and selfless services through NSS activities, social services programmers, student council and other responsibilities.</p>
+    <p class="small text-monospace text-justify"><i class="fas fa-check-circle kadd"></i> To promote physical and emotional health through consistent improvement to physical plan. Sports Activities, Co-curricular activities and personal guidance</p>
+    <p class="small text-monospace text-justify"><i class="fas fa-check-circle kadd"></i> To promote care for environment by planting tree, gardening, use of eco-friendly materials, conservation of water and electricity and taking good care of the common property</p>
+</div>
+    
+</div>
+
+{% comment %} <div class="row p-md-5 ">
+    <div class="col-md-7 px-3">
+        <h1 class="display-4 text-center">{{data.title}}</h1>
+        <p class="my-4 text-monospace">{{data.description}}</p>
+        
+    </div>
+
+    <div class="col-md-5 px-5">
+        <img  class="rounded" src="{{data.photo.url}}" alt="Principal's Image" style="width: 500px; height: 450px;" srcset="">
+    </div>
+</div> {% endcomment %}
+{% endblock body %}

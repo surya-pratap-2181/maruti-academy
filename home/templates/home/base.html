@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/preloader.css' %}">
+
+
+    {% block link %}
+    {% endblock link %}
+    <title> {% block title %} Home {% endblock title %}</title>
+</head>
+<body onload="myFunction()" >
+ <!-- preloader starts here -->
+    <div class="container-fluid" id="loading" style="height: 100vh;">
+        <div class="load">
+            <hr />
+            <hr />
+            <hr />
+            <hr />
+        </div>
+    </div>
+    <!-- preloader ends here  -->
+{% include 'home/navbar.html' %}
+{% block body %}
+{% endblock body %}
+{% include 'home/footer.html' %}
+<script>
+        const loader = document.getElementById('loading');
+        function myFunction() {
+            loader.style.display = 'none';
+        }
+    </script>
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/all.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+{% block script %}
+{% endblock script %}
+</body>
+</html>

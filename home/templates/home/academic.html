@@ -1,0 +1,23 @@
+{% extends 'home/base.html' %}
+{% block title %}
+Academic Details
+{% endblock title %}
+{% block body %}
+<div class="container mb-5 ">
+<h1 class="shadow p-2 my-4 text-center f-color mytext py-3 " >Academic Details</h1>
+<hr>
+</div>
+{% comment %} <h1 class="text-center my-4 mytext f-color">Academic Details</h1> {% endcomment %}
+<div class="container">
+    {% for i in academics %}
+    <div class="media my-2">
+        <img src="{{i.photo.url}}" style="height: 240px; width: 240px;" class="rounded align-self-center mr-3 mb-3" alt="...">
+        <div class="media-body ">
+            <h5 class="font-weight-bolder my-3 mx-2">{{i.title}}</h5>
+            <p class="mx-4 text-justify j-color">{{i.description}}</p>
+            <hr>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock body %}

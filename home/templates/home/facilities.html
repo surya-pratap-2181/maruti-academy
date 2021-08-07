@@ -424,12 +424,13 @@ Facilities
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="main-timeline">
+                {% static "" as baseUrl %}
                     {% for i in facilities %}
                     <div class="timeline">
                         <div class="timeline-content">
                             <div class="circle"><span class="homebox">
                                     <!-- <img src="https://picsum.photos/164" class="img"> -->
-                                    <img src="{{i.photo.url}}" class="img" width="164px" height="164px">
+                                    <img src="{{ baseUrl }}images/facility{{forloop.counter}}.jpg" class="img" width="164px" height="164px">
                                 </span></div>
                             <div class="content">
                                 <span class="year">No.{{forloop.counter}}</span>

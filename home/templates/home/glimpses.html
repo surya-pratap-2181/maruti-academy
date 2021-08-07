@@ -5,11 +5,12 @@ Glimpses
 {% endblock title %}
 {% block body %}
 <div class="container-fluid">
+{% static "" as baseUrl %}
 <h2 class="text-center my-2 text-primary st-font"> Lucky Draw </h2>
     <div class="row text-center">
     {% for i in luckydraw_image %}
         <div class="col-md-4 my-2">
-            <img src="{{i.image.url}}" width="100%" height="250px">
+            <img src="{{ baseUrl }}images/lucky-draw{{forloop.counter}}.jpg" width="100%" height="250px">
         </div>
     {% endfor %}
     </div>
@@ -19,7 +20,7 @@ Glimpses
     <div class="row text-center">
     {% for i in pariksha_image %}
         <div class="col-md-4 my-2">
-            <img src="{{i.image.url}}" width="100%" height="250px">
+            <img src="{{ baseUrl }}images/pariksha{{forloop.counter}}.jpg" width="100%" height="250px">
         </div>
     {% endfor %}
     </div>
@@ -29,7 +30,7 @@ Glimpses
     <div class="row text-center">
     {% for i in yogaday_image %}
         <div class="col-md-4 my-2">
-            <img src="{{i.image.url}}" width="100%" height="250px">
+            <img src="{{ baseUrl }}images/yoga{{forloop.counter}}.jpg" width="100%" height="250px">
         </div>
     {% endfor %}
     </div>

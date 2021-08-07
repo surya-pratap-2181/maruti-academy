@@ -25,9 +25,10 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
+    {% static "" as baseUrl %}
         {% for image in images %}
             <div {% if forloop.counter == 1 %}class="carousel-item active" {% else %} class="carousel-item" {% endif %}>
-            <img src="{{image.image.url}}" style="height: 600px;" class="d-block w-100" alt="...">
+            <img src="{{ baseUrl }}images/corousel{{forloop.counter}}.jpg" style="height: 600px;" class="d-block w-100" alt="...">
             </div>
             {% endfor %}
     </div>
@@ -56,7 +57,7 @@
             <p class="text-monospace mt-3 text-left">{{home1.description}}</p>
         </div>
         <div class="col-md-5 order-md-1 text-center my-3">
-            <img src="{{home1.photo.url}}" style="width: 500px; height: 350px;" alt="" srcset="">
+            <img src="{% static 'images/home1.jpg' %}" style="width: 500px; height: 350px;" alt="" srcset="">
 
         </div>
     </div>
@@ -93,7 +94,7 @@
         <div class="row ">
             {% for card in cards %}
             <div class="card mx-4 my-3 shadow border" style="width: 18rem;">
-                <img src="{{card.photo.url}}" class="card-img-top" alt="...">
+                <img src="{{ baseUrl }}images/card{{forloop.counter}}.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title font-weight-bold">{{card.title}}</h5>
                     <p class="card-text">{{card.description}}</p>

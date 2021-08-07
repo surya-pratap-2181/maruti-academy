@@ -39,17 +39,17 @@ def about(request):
 
 def principal(request):
     message = Content.objects.get(pk=1)
-    return render(request, 'home/administrators.html', {'data': message})
+    return render(request, 'home/principal.html', {'data': message})
 
 
 def administrator(request):
     message = Content.objects.get(pk=2)
-    return render(request, 'home/administrators.html', {'data': message})
+    return render(request, 'home/administrator.html', {'data': message})
 
 
 def president(request):
     message = Content.objects.get(pk=3)
-    return render(request, 'home/administrators.html', {'data': message})
+    return render(request, 'home/president.html', {'data': message})
 
 
 def glimpses(request):

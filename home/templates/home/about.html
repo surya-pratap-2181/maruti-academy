@@ -1,4 +1,5 @@
 {% extends 'home/base.html' %}
+{% load static %}
 {% block title %}
 About
 {% endblock title %}
@@ -10,7 +11,7 @@ About
     {% comment %} <h1 class="display-4 text-center"></h1> {% endcomment %}
 
 <div class="container mt-3 ">
-    <img class="rounded mx-auto d-block" src="{{data.photo.url}}" alt="Principal's Image"  srcset="">
+    <img class="rounded mx-auto d-block" src="{% static 'images/schoolstaff.jpg' %}" alt="Principal's Image"  srcset="">
     <p class="my-5 text-monospace text-justify">{{data.description}}</p> 
 </div>
 
@@ -25,9 +26,10 @@ About
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner rounded">
+        {% static "" as baseUrl %}
         {% for image in images %}
             <div {% if forloop.counter == 1 %}class="carousel-item active" {% else %} class="carousel-item" {% endif %}>
-            <img src="{{image.image.url}}" style="height: 450px;" class="d-block w-100" alt="...">
+            <img src="{{ baseUrl }}images/corousel{{forloop.counter}}.jpg" style="height: 450px;" class="d-block w-100" alt="...">
             </div>
             {% endfor %}
         </div>

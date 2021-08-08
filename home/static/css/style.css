@@ -19,8 +19,11 @@
 .mytext{
     font-family: Satisfy;
 }
+.ss-font{
+    font-family: 'Open Sans', sans-serif;
+}
 .kadd{
-    color: #82C925;
+    color: #03045e;
 }
 .headcolor{
     color: #000F2B;
@@ -28,3 +31,87 @@
 ul {
     list-style-type: none;
 }
+
+/* customise  */
+
+/* #header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7)rgba(4,9,30,0.7)), url('/static/images/academic-detail1.jpg');
+    background-position: center;
+    background-size: cover;
+} */
+
+
+
+/* Mast Css Starts Here  */
+@property --hue {
+    initial-value: 0;
+    syntax: "<number>";
+    inherits: false;
+}
+
+@property --eval {
+    initial-value: 0;
+    syntax: "<number>";
+    inherits: false;
+}
+
+.mastcss {
+
+    /* overflow: hidden; */
+    /* background-color: black; */
+    /* color: white; */
+    -webkit-animation: rotate 8s linear infinite both, eval 19s linear infinite both;
+    animation: rotate 8s linear infinite both, eval 19s linear infinite both;
+    background-image: radial-gradient(farthest-corner at 0% calc(var(--eval) * 100%), hsla(calc(var(--hue) * 360deg), 70%, 60%, 1), hsla(calc(var(--hue) * 360deg), 70%, 60%, 0) 80%), radial-gradient(farthest-corner at calc(var(--eval) * 100%) 100%, hsla(calc((var(--hue) + 0.15) * 360deg), 60%, 60%, 1), hsla(calc((var(--hue) + 0.2) * 360deg), 60%, 60%, 0) 110%), radial-gradient(farthest-corner at calc(100% - var(--eval) * 100%) 0%, hsla(calc((var(--hue) + 0.3) * 360deg), 60%, 60%, 1), hsla(calc((var(--hue) + 0.3) * 360deg), 60%, 60%, 0) 100%), radial-gradient(farthest-corner at 100% calc(100% - var(--eval) * 100%), hsla(calc((var(--hue) + 0.45) * 360deg), 70%, 60%, 1), hsla(calc((var(--hue) + 0.5) * 360deg), 70%, 60%, 0) 90%);
+}
+
+@-webkit-keyframes rotate {
+    from {
+        --hue: 0;
+    }
+
+    to {
+        --hue: 1;
+    }
+}
+
+@keyframes rotate {
+    from {
+        --hue: 0;
+    }
+
+    to {
+        --hue: 1;
+    }
+}
+
+@-webkit-keyframes eval {
+    0% {
+        --eval: 0;
+    }
+
+    50% {
+        --eval: 1;
+    }
+
+    100% {
+        --eval: 0;
+    }
+}
+
+@keyframes eval {
+    0% {
+        --eval: 0;
+    }
+
+    50% {
+        --eval: 1;
+    }
+
+    100% {
+        --eval: 0;
+    }
+}
+

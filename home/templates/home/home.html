@@ -1,8 +1,57 @@
 {% extends 'home/base.html' %}
 {% load static %}
+{% block link %}
+<style>
+    #header {
+        min-height: 100vh;
+        width: 100%;
+        background-image: url('/static/images/corousel1.jpg');
+        background-position: center;
+        background-size: cover;
+    }
+    .jumbotron {
+  position: relative;
+  overflow: hidden;
+}
+.jumbotron .container {
+  position: relative;
+  z-index: 2;
+  color: #03045e;
+}
+.jumbotron:after {
+  content:"";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;  
+  background:url('/static/images/corousel1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(4.5px);
+  transform: scale(1.1);
+}
+</style>
+
+{% endblock link %}
 {% block body %}
-<div class="container-fluid px-0 ">
-    <section class="jumbotron jumbotron-fluid text-center shadow jnav">
+<div class="container-fluid px-0" >
+<div class="jumbotron jumbotron-fluid rounded text-center m-0 " >
+<div class="container">
+            <p class="text-info st-font">Welcome to</p>
+            <h1 class="font-weight-bolder display-1 mytext">Maruti Academy</h1>
+            <p class=" lead ss-font">CBSE Affilation No. 1030340</p>
+            <p class="font-weight-bold ss-font">Admission Open 2021-22 </p>
+            <p class="font-weight-bold"> Please Contact us at School Campus or call on
+            </p>
+            <p> <a class="kadd" href="tel:+917509249549"> +91-75092-49549 </a> | <a class="kadd"
+                    href="tel:+917987179334">
+                    +91-79871-79334 </a>
+            </p>
+        </div>
+</div>
+    <!-- <section class="jumbotron jumbotron-fluid text-center shadow" >
         <div class="container">
             <p class="text-info">Welcome to</p>
             <h1 class="font-weight-bolder display-2">Maruti Academy</h1>
@@ -15,22 +64,23 @@
                     +91-79871-79334 </a>
             </p>
         </div>
-    </section>
+    </section> -->
 </div>
 <!-- Carousel Start here -->
-<div id="carouselExampleIndicators" class="carousel slide shadow" data-ride="carousel">
+<!-- <div id="carouselExampleIndicators" class="carousel slide shadow" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
-    {% static "" as baseUrl %}
+        {% static "" as baseUrl %}
         {% for image in images %}
-            <div {% if forloop.counter == 1 %}class="carousel-item active" {% else %} class="carousel-item" {% endif %}>
-            <img src="{{ baseUrl }}images/corousel{{forloop.counter}}.jpg" style="height: 600px;" class="d-block w-100" alt="...">
-            </div>
-            {% endfor %}
+        <div {% if forloop.counter == 1 %}class="carousel-item active" {% else %} class="carousel-item" {% endif %}>
+            <img src="{{ baseUrl }}images/corousel{{forloop.counter}}.jpg" style="height: 600px;" class="d-block w-100"
+                alt="...">
+        </div>
+        {% endfor %}
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -40,21 +90,22 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
-</div>
-<!-- carousel ends here -->
+</div> -->
 
+<!-- carousel ends here -->
+<div class="container-fluid mastcss st-font">
 <!-- Features starts here  -->
-<div class="container-fluid mt-2">
+<div class="container-fluid rounded shadow" >
 
     <!-- START THE FEATURETTES -->
 
-    <hr class="featurette-divider">
+    <!-- <hr class="featurette-divider"> -->
 
     <div class="row featurette shadow p-3">
         <div class="col-md-7 order-md-2">
             <h2 class=" text-center my-2">{{home1.title}}</span>
             </h2>
-            <p class="text-monospace mt-3 text-left">{{home1.description}}</p>
+            <p class="mt-3 text-justify ss-font px-3">{{home1.description}}</p>
         </div>
         <div class="col-md-5 order-md-1 text-center my-3">
             <img src="{% static 'images/home1.jpg' %}" style="width: 100%; height: 350px;" alt="" srcset="">
@@ -69,7 +120,7 @@
             <h2 class=" text-center my-2">{{home2.title}}</span>
             </h2>
 
-            <p class="text-monospace mt-3">{{home2.description}}</p>
+            <p class="ss-font text-justify px-3 mt-3">{{home2.description}}</p>
         </div>
         <div class="col-md-5 order-md-2 text-center my-3">
             <img src="{% static 'images/home2.jpg' %}" style="width: 100%; height: 350px;" alt="" srcset="">
@@ -77,28 +128,28 @@
         </div>
     </div>
 
-    <hr class="featurette-divider">
 
     <!-- /END THE FEATURETTES -->
 </div>
 <!-- Features ends here  -->
 <!-- Cards starts Here  -->
-<div class="container-fluid p-3" style="background-color: #D3D3D3;">
+<div class="container-fluid p-3 mt-3" >
     <div class="text-center">
-        <h1 class="font-weight-bolder">Maruti Academy</h1>
+        <h1 class="font-weight-bolder display-4">Maruti Academy</h1>
         <p>Maruti Academy, Ratlam is spread over 7 Acres of land in lush green, Serene atmosphere having spacious
             building with all modern facilities for its students and now it is considered as one of the best CBSE
             affiliated schools of Ratlam.</p>
     </div>
     <div class="container text-center">
         <div class="row ">
+        {% static "" as baseUrl %}
             {% for card in cards %}
             <div class="card mx-4 my-3 shadow border" style="width: 18rem;">
                 <img src="{{ baseUrl }}images/card{{forloop.counter}}.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
+                <div class="card-body" style="background-color: #dcfffd;">
                     <h5 class="card-title font-weight-bold">{{card.title}}</h5>
-                    <p class="card-text">{{card.description}}</p>
-                    <a href="{% url 'glimpses' %}" class="btn btn-success">Explore</a>
+                    <p class="card-text text-justify">{{card.description}}</p>
+                    <a href="{% url 'glimpses' %}" class="btn btn-success rounded-pill font-weight-bold px-4 py-2">Explore &nbsp <i class="fas fa-arrow-alt-circle-right fa-2x text-warning"></i></a>
                 </div>
             </div>
             {% endfor %}
@@ -106,4 +157,5 @@
     </div>
 </div>
 <!-- Cards ends Here  -->
+</div>
 {% endblock body %}

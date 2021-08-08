@@ -5,21 +5,24 @@ Academic Details
 {% endblock title %}
 {% block body %}
 <div class="container mb-5 ">
-<h1 class="shadow p-2 my-4 text-center f-color mytext py-3 " >Academic Details</h1>
-<hr>
+    <h1 class="shadow p-2 my-4 text-center f-color mytext py-3 ">Academic Details</h1>
+    <hr>
 </div>
-{% comment %} <h1 class="text-center my-4 mytext f-color">Academic Details</h1> {% endcomment %}
-<div class="container-fluid">
-<div class="row">
-<div class="col">
-{% static "" as baseUrl %}
-    {% for i in academics %}
-        <img src="{{ baseUrl }}images/academic-detail{{forloop.counter}}.jpg" style="width:250px;height:250px" class="img-fluid rounded mx-auto d-block mb-3" alt="...">
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col">
+            {% static "" as baseUrl %}
+            {% for i in academics %}
+            <img src="{{ baseUrl }}images/academic-detail{{forloop.counter}}.jpg" style="width:250px;height:250px"
+                class="img-fluid rounded mx-auto d-block mb-3" alt="...">
             <h5 class="font-weight-bolder text-center my-3 mx-2 mytext">{{i.title}}</h5>
             <p class="mx-4 text-justify text-center j-color mytext">{{i.description}}</p>
+            {% if forloop.last %}
+            {% else %}
             <hr>
-    {% endfor %}
-</div>
-</div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
 </div>
 {% endblock body %}
